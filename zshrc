@@ -45,7 +45,7 @@ ZSH_THEME="bira"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(common-aliases git git-extras svn-fast-info)
+plugins=(common-aliases git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -72,6 +72,8 @@ export TERM=xterm-256color
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+export TERM=xterm-256color
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -80,5 +82,37 @@ export TERM=xterm-256color
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias b="./build -j64"
-alias bs="./build simple -j64"
+
+function findstring ()
+{
+    find . -name "$1"
+}
+alias f="findstring"
+
+function findsubstring ()
+{
+    find . -name "*$1*"
+}
+alias fs="findsubstring"
+
+# Bind ctrl-backspace to delete word
+bindkey '^[\' kill-word
+
+# Ctrl+space : print git/SVN status or list files with ls
+#function vcs-status() {
+    # \print; zle accept-line;
+    #if [ -d .git ]; then
+    #    git status 
+    #elif [ -d .svn ]; then
+    #    svn status
+    #else
+    #    ls
+    #fi
+    #zle accept-line
+#}
+#zle -N vcs-status
+#bindkey '^ ' vcs-status
+
+if [ -e "${HOME}/.sx_aliases" ]; then
+    source "${HOME}/.sx_aliases"
+fi
