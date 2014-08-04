@@ -51,8 +51,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/home/jbowler/bin:/opt/usr_sx/bin:/usr/local/bin:/usr/bin:/bin:/usr/games"
+# export PATH="$HOME/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
+
+export TERM=xterm-256color
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
