@@ -1,0 +1,7 @@
+[user]
+	name = John Bowler
+	email = jwbowler@gmail.com
+[color]
+	ui = true
+[core]
+	excludesfile = ~/.gitignore_global
