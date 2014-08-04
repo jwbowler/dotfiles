@@ -32,6 +32,7 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'wincent/Command-T'
 Plugin 'FSwitch'
 Plugin 'wesQ3/vim-windowswap'
+" Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -52,10 +53,14 @@ let mapleader=" "
 
 nnoremap ; :
 
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
-nnoremap <Leader>wq :wq<CR>
-nnoremap <Leader>e :e<CR>
+hi Normal ctermbg=NONE
+hi NonText ctermbg=NONE
+hi ExtraWhitespace ctermbg=red
+
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>wq :wq<CR>
+nnoremap <leader>e :e<CR>
 
 nnoremap <C-d> L
 nnoremap <C-u> H
@@ -82,6 +87,14 @@ nnoremap <Leader>k K
 nnoremap <Leader>s :split<CR>
 nnoremap <Leader>v :vsplit<CR>
 
+nnoremap <leader>aa :FSHere<cr>
+nnoremap <leader>ah :FSSplitLeft<cr>
+nnoremap <leader>aj :FSSplitDown<cr>
+nnoremap <leader>ak :FSSplitUp<cr>
+nnoremap <leader>al :FSSplitRight<cr>
+
+nnoremap ; :
+
 if has("autocmd")
     filetype plugin indent on
 
@@ -98,7 +111,9 @@ set hlsearch
 set number
 
 set encoding=utf-8
+set formatoptions=croq
 set scrolloff=10
+set textwidth=80
 
 syntax enable
 set background=dark
@@ -117,3 +132,7 @@ hi ExtraWhitespace ctermbg=red
 " let g:airline_symbols.linenr = ''
 " let g:airline_symbols.paste = 'ρ'
 " let g:airline_symbols.whitespace = 'Ξ'
+
+autocmd! BufEnter *.cc let b:fswitchdst = 'h' | let b:fswitchlocs = '.'
+autocmd! BufEnter *.c let b:fswitchdst = 'h' | let b:fswitchlocs = '.'
+autocmd! BufEnter *.h let b:fswitchdst = 'cc,c' | let b:fswitchlocs = '.'
