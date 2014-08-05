@@ -62,15 +62,9 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>wq :wq<CR>
 nnoremap <leader>e :e<CR>
 
-nnoremap <C-d> L
-nnoremap <C-u> H
-
-nnoremap <C-y> 3<C-y>
-nnoremap <C-e> 3<C-e>
-
 nnoremap H ^
-nnoremap J <C-d>
-nnoremap K <C-u>
+nnoremap J 10<C-e>10j
+nnoremap K 10<C-y>10k
 nnoremap L $
 
 nnoremap - ;
@@ -94,6 +88,10 @@ nnoremap <leader>ak :FSSplitUp<cr>
 nnoremap <leader>al :FSSplitRight<cr>
 
 nnoremap ; :
+
+nnoremap c- ct_
+
+vnoremap y y`]
 
 if has("autocmd")
     filetype plugin indent on
