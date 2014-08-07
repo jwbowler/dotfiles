@@ -33,6 +33,7 @@ Plugin 'wincent/Command-T'
 Plugin 'FSwitch'
 Plugin 'wesQ3/vim-windowswap'
 " Plugin 'Valloric/YouCompleteMe'
+Plugin 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -70,17 +71,27 @@ nnoremap L $
 nnoremap - ;
 nnoremap _ ,
 
-nnoremap <silent> <C-k> :wincmd k<CR>
-nnoremap <silent> <C-j> :wincmd j<CR>
-nnoremap <silent> <C-h> :wincmd h<CR>
-nnoremap <silent> <C-l> :wincmd l<CR>
+nnoremap <silent> <Leader>h :wincmd h<CR>
+nnoremap <silent> <Leader>j :wincmd j<CR>
+nnoremap <silent> <Leader>k :wincmd k<CR>
+nnoremap <silent> <Leader>l :wincmd l<CR>
 
-nnoremap <Leader>j J
-nnoremap <Leader>k K
+nnoremap <C-j> J
+nnoremap <C-k> K
 
-nnoremap <Leader>s :split<CR>
-nnoremap <Leader>v :vsplit<CR>
+" split window
+nnoremap <leader>swh :topleft  vnew<CR>
+nnoremap <leader>swj :botright new<CR>
+nnoremap <leader>swk :topleft  new<CR>
+nnoremap <leader>swl :botright vnew<CR>
 
+" split buffer
+nnoremap <leader>sh  :leftabove  vnew<CR>
+nnoremap <leader>sj  :rightbelow new<CR>
+nnoremap <leader>sk  :leftabove  new<CR>
+nnoremap <leader>sl  :rightbelow vnew<CR>
+
+" open corresponding .cc/.h
 nnoremap <leader>aa :FSHere<cr>
 nnoremap <leader>ah :FSSplitLeft<cr>
 nnoremap <leader>aj :FSSplitDown<cr>
