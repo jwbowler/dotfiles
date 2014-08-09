@@ -177,11 +177,5 @@ workspace 8 output DP-1
 workspace 9 output DP-1
 workspace 10 output DP-1
 
-# Map programs to workspaces
-exec --no-startup-id i3-msg 'workspace 2; exec chromium-browser'
-exec --no-startup-id i3-msg 'workspace 10; exec i3-sensible-terminal; exec i3-sensible-terminal'
-exec --no-startup-id i3-msg 'workspace 9; exec firefox; exec xchat'
-exec --no-startup-id i3-msg 'workspace 1; exec netbeans'
-
 # Set desktop background
 exec --no-startup-id nitrogen --restore
