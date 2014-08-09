@@ -116,8 +116,11 @@ set expandtab
 set shiftwidth=4
 set softtabstop=4
 
+set cursorline
 set hlsearch
+set ignorecase
 set number
+set smartcase
 
 set encoding=utf-8
 set formatoptions=croq
@@ -129,6 +132,7 @@ set background=dark
 set t_Co=256
 colorscheme jellybeans
 hi Normal ctermbg=NONE
+hi NonText ctermbg=NONE
 hi ExtraWhitespace ctermbg=red
 
 " let g:airline_powerline_fonts = 1
