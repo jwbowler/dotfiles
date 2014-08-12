@@ -45,7 +45,7 @@ ZSH_THEME="bira"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(common-aliases git)
+plugins=(common-aliases fasd git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -87,7 +87,7 @@ function findstring ()
 {
     find . -name "$1"
 }
-alias f="findstring"
+alias ff="findstring"
 
 function findsubstring ()
 {
@@ -102,7 +102,7 @@ bindkey '^[\' kill-word
 #function vcs-status() {
     # \print; zle accept-line;
     #if [ -d .git ]; then
-    #    git status 
+    #    git status
     #elif [ -d .svn ]; then
     #    svn status
     #else
@@ -112,6 +112,8 @@ bindkey '^[\' kill-word
 #}
 #zle -N vcs-status
 #bindkey '^ ' vcs-status
+
+alias v='f -e vim' # quick opening files with vim
 
 if [ -e "${HOME}/.sx_aliases" ]; then
     source "${HOME}/.sx_aliases"
