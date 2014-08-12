@@ -34,6 +34,7 @@ Plugin 'FSwitch'
 Plugin 'wesQ3/vim-windowswap'
 " Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
+" Plugin 'comments.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -92,11 +93,11 @@ nnoremap <leader>sk  :leftabove  new<CR>
 nnoremap <leader>sl  :rightbelow vnew<CR>
 
 " open corresponding .cc/.h
-nnoremap <leader>aa :FSHere<cr>
-nnoremap <leader>ah :FSSplitLeft<cr>
-nnoremap <leader>aj :FSSplitDown<cr>
-nnoremap <leader>ak :FSSplitUp<cr>
-nnoremap <leader>al :FSSplitRight<cr>
+nnoremap <leader>aa :FSHere<CR>
+nnoremap <leader>ah :vsplit<CR>:wincmd l<CR>:FSLeft<CR>
+nnoremap <leader>aj :FSSplitBelow<CR>
+nnoremap <leader>ak :vsplit<CR>:wincmd j<CR>:FSAbove<CR>
+nnoremap <leader>al :FSSplitRight<CR>
 
 nnoremap ; :
 
@@ -110,6 +111,9 @@ if has("autocmd")
     " Use actual tabs in Makefiles.
     autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
 endif
+
+command! Vimrc e $MYVIMRC
+command! Revim so $MYVIMRC
 
 set tabstop=8
 set expandtab
