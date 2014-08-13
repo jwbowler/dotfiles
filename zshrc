@@ -53,6 +53,7 @@ source $ZSH/oh-my-zsh.sh
 
 # export PATH="$HOME/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
+export PATH="$PATH:$HOME/local/bin"
 
 export TERM=xterm-256color
 
