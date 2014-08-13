@@ -35,6 +35,7 @@ Plugin 'wesQ3/vim-windowswap'
 " Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
 " Plugin 'comments.vim'
+Plugin 'basepi/vim-conque'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
