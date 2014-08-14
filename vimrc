@@ -82,16 +82,16 @@ nnoremap <C-j> J
 nnoremap <C-k> K
 
 " split window
-nnoremap <leader>swh :topleft  vnew<CR>
-nnoremap <leader>swj :botright new<CR>
-nnoremap <leader>swk :topleft  new<CR>
-nnoremap <leader>swl :botright vnew<CR>
+nnoremap <leader>swh :topleft vsplit<CR>
+nnoremap <leader>swj :botright split<CR>
+nnoremap <leader>swk :topleft split<CR>
+nnoremap <leader>swl :botright vsplit<CR>
 
 " split buffer
-nnoremap <leader>sh  :leftabove  vnew<CR>
-nnoremap <leader>sj  :rightbelow new<CR>
-nnoremap <leader>sk  :leftabove  new<CR>
-nnoremap <leader>sl  :rightbelow vnew<CR>
+nnoremap <leader>sh  :leftabove vsplit<CR>
+nnoremap <leader>sj  :rightbelow split<CR>
+nnoremap <leader>sk  :leftabove split<CR>
+nnoremap <leader>sl  :rightbelow vsplit<CR>
 
 " open corresponding .cc/.h
 nnoremap <leader>aa :FSHere<CR>
@@ -99,6 +99,20 @@ nnoremap <leader>ah :vsplit<CR>:wincmd l<CR>:FSLeft<CR>
 nnoremap <leader>aj :FSSplitBelow<CR>
 nnoremap <leader>ak :vsplit<CR>:wincmd j<CR>:FSAbove<CR>
 nnoremap <leader>al :FSSplitRight<CR>
+
+" goto definition
+nnoremap <leader>]] <C-]>
+nnoremap <leader>]h ::leftabove vsplit<CR><C-]>
+nnoremap <leader>]j ::rightbelow split<CR><C-]>
+nnoremap <leader>]k ::leftabove split<CR><C-]>
+nnoremap <leader>]l ::rightbelow vsplit<CR><C-]>
+
+" goto last location
+nnoremap <leader>oo <C-o>
+nnoremap <leader>oh ::leftabove vsplit<CR><C-o>
+nnoremap <leader>oj ::rightbelow split<CR><C-o>
+nnoremap <leader>ok ::leftabove split<CR><C-o>
+nnoremap <leader>ol ::rightbelow vsplit<CR><C-o>
 
 nnoremap ; :
 
