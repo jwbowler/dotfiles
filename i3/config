@@ -12,7 +12,8 @@
 set $mod Mod1
 
 # font for window titles. ISO 10646 = Unicode
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+font pango:Terminus 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -156,11 +157,11 @@ bar {
 
 # Execute certain programs on startup
 #exec --no-startup-id gnome-settings-daemon
-exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg
+#exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg
 #export SSH_AUTH_SOCK
 #export GPG_AGENT_INFO
-exec --no-startup-id gnome-screensaver
-exec --no-startup-id redshift
+#exec --no-startup-id gnome-screensaver
+#exec --no-startup-id redshift
 
 # Disable cursor warping
 focus_follows_mouse no
@@ -178,4 +179,4 @@ workspace 9 output DP-1
 workspace 10 output DP-1
 
 # Set desktop background
-exec --no-startup-id nitrogen --restore
+#exec --no-startup-id nitrogen --restore
