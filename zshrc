@@ -53,7 +53,7 @@ source $ZSH/oh-my-zsh.sh
 
 # export PATH="$HOME/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
-export PATH="$PATH:$HOME/local/bin"
+export PATH="$PATH:$HOME/bin:$HOME/local/bin"
 
 export TERM=xterm-256color
 
@@ -74,6 +74,9 @@ export TERM=xterm-256color
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 export TERM=xterm-256color
+
+# Engage Vi mode
+bindkey -v
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -119,3 +122,6 @@ alias v='f -e vim' # quick opening files with vim
 if [ -e "${HOME}/.sx_aliases" ]; then
     source "${HOME}/.sx_aliases"
 fi
+
+# Extra machine-specific sources
+source ~/.sources
