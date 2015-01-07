@@ -36,6 +36,7 @@ Plugin 'wesQ3/vim-windowswap'
 Plugin 'tpope/vim-fugitive'
 " Plugin 'comments.vim'
 Plugin 'basepi/vim-conque'
+Plugin 'jplaut/vim-arduino-ino'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -131,6 +132,9 @@ if has("autocmd")
 
     " Use actual tabs in Makefiles.
     autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
+
+    " Indent .ino files like .c files.
+    autocmd FileType arduino set cindent
 endif
 
 command! Vimrc e $MYVIMRC
