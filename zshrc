@@ -125,3 +125,6 @@ fi
 
 # Extra machine-specific sources
 source ~/.sources
+
+# Init rbenv
+eval "$(rbenv init -)"
