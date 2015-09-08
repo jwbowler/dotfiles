@@ -25,18 +25,28 @@ Plugin 'gmarik/Vundle.vim'
 " Plugin 'user/L9', {'name': 'newL9'}
 
 Plugin 'Trinity'
-Plugin 'python.vim'
-Plugin 'indentpython.vim'
+" Plugin 'python.vim'
+" Plugin 'indentpython.vim'
+" Plugin 'klen/python-mode'
+Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'jellybeans.vim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'wincent/Command-T'
+Plugin 'ctrlp.vim'
 Plugin 'FSwitch'
 Plugin 'wesQ3/vim-windowswap'
 " Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
 " Plugin 'comments.vim'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'basepi/vim-conque'
 Plugin 'jplaut/vim-arduino-ino'
+Plugin 'vim-less'
+Plugin 'lervag/vim-latex'
+Plugin 'gitignore'
+Plugin 'tpope/vim-vinegar'
+" Plugin 'fholgado/minibufexpl.vim'
+Plugin 'vim-coffee-script'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -72,21 +82,21 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>wq :wq<CR>
 nnoremap <leader>e :e<CR>
 
-nnoremap H ^
-nnoremap J 10<C-e>10j
-nnoremap K 10<C-y>10k
-nnoremap L $
+noremap H ^
+noremap J 10<C-e>10j
+noremap K 10<C-y>10k
+noremap L $
 
-nnoremap - ;
-nnoremap _ ,
+"noremap - ;
+"noremap _ ,
 
 nnoremap <silent> <Leader>h :wincmd h<CR>
 nnoremap <silent> <Leader>j :wincmd j<CR>
 nnoremap <silent> <Leader>k :wincmd k<CR>
 nnoremap <silent> <Leader>l :wincmd l<CR>
 
-nnoremap <C-j> J
-nnoremap <C-k> K
+noremap <C-j> J
+noremap <C-k> K
 
 " split window
 nnoremap <leader>swh :topleft vsplit<CR>
@@ -121,9 +131,9 @@ nnoremap <leader>oj ::rightbelow split<CR><C-o>
 nnoremap <leader>ok ::leftabove split<CR><C-o>
 nnoremap <leader>ol ::rightbelow vsplit<CR><C-o>
 
-nnoremap ; :
+noremap ; :
 
-nnoremap c- ct_
+noremap c- ct_
 
 vnoremap y y`]
 
@@ -135,6 +145,8 @@ if has("autocmd")
 
     " Indent .ino files like .c files.
     autocmd FileType arduino set cindent
+
+    autocmd FileType python setlocal smartindent shiftwidth=4 ts=4 et cinwords=if,elif,else,for,while,try,except,finally,def,class
 endif
 
 command! Vimrc e $MYVIMRC
@@ -155,6 +167,8 @@ set encoding=utf-8
 set formatoptions=croq
 set scrolloff=10
 set textwidth=80
+
+set backspace=start
 
 syntax enable
 set background=dark
@@ -178,3 +192,7 @@ hi ExtraWhitespace ctermbg=red
 autocmd! BufEnter *.cc let b:fswitchdst = 'h' | let b:fswitchlocs = '.'
 autocmd! BufEnter *.c let b:fswitchdst = 'h' | let b:fswitchlocs = '.'
 autocmd! BufEnter *.h let b:fswitchdst = 'cc,c' | let b:fswitchlocs = '.'
+
+let g:pymode_doc_bind = '^K'
+
+let NERDSpaceDelims=1

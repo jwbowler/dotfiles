@@ -53,7 +53,9 @@ source $ZSH/oh-my-zsh.sh
 
 # export PATH="$HOME/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
-export PATH="$PATH:$HOME/bin:$HOME/local/bin"
+export PATH="$HOME/bin:$HOME/local/bin:$PATH"
+
+#export PYTHONPATH=/Users/jbowler/caffe/python:/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 
 export TERM=xterm-256color
 
