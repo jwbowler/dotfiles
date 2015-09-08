@@ -14,5 +14,5 @@ ln -s ~/.dotfiles/vimrc ~/.vimrc
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # Install Vundle packages in vimrc
-ssh -c "VundleInstall" .zshrc
+vim -c "VundleInstall" .zshrc
 
