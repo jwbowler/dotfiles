@@ -129,4 +129,4 @@ fi
 source ~/.sources
 
 # Init rbenv
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
