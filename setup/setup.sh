@@ -5,6 +5,7 @@ sudo apt-get install zsh
 sh ~/.dotfiles/setup/ohmyz.sh
 
 # Add .*rc symlinks to home directory
+touch ~/.sources
 rm -rf ~/.zshrc
 ln -s ~/.dotfiles/zshrc ~/.zshrc
 ln -s ~/.dotfiles/vimrc ~/.vimrc
