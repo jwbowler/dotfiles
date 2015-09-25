@@ -130,3 +130,6 @@ source ~/.sources
 
 # Init rbenv
 # eval "$(rbenv init -)"
+
+# Ctrl-R reverse search
+bindkey "^R" history-incremental-search-backward
