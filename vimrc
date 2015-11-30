@@ -24,29 +24,48 @@ Plugin 'gmarik/Vundle.vim'
 " Avoid a name conflict with L9
 " Plugin 'user/L9', {'name': 'newL9'}
 
-Plugin 'Trinity'
+" Color scheme
+Plugin 'jellybeans.vim'
+
+" For trailing whitespace
+Plugin 'ntpeters/vim-better-whitespace'
+
+" Comment with <leader>cc or <leader>ci
+Plugin 'scrooloose/nerdcommenter'
+
+" Ignore gitignored files
+Plugin 'gitignore'
+
+" Improves netrw
+Plugin 'tpope/vim-vinegar'
+
+" Source navigation
+" Plugin 'wincent/Command-T'
+" Plugin 'ctrlp.vim'
+
+" Navigate between source and header files
+" Plugin 'FSwitch'
+
+" Swap two windows: <leader>ww <leader>ww
+" Plugin 'wesQ3/vim-windowswap'
+
+" Autocompletion
+" Plugin 'Valloric/YouCompleteMe'
+
+" Git stuff
+" Plugin 'tpope/vim-fugitive'
+
+" Python plugins: some I've tried; one I'm using
 " Plugin 'python.vim'
 " Plugin 'indentpython.vim'
 " Plugin 'klen/python-mode'
 Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'jellybeans.vim'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'wincent/Command-T'
-Plugin 'ctrlp.vim'
-Plugin 'FSwitch'
-Plugin 'wesQ3/vim-windowswap'
-" Plugin 'Valloric/YouCompleteMe'
-Plugin 'tpope/vim-fugitive'
-" Plugin 'comments.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'basepi/vim-conque'
-Plugin 'jplaut/vim-arduino-ino'
-Plugin 'vim-less'
-Plugin 'lervag/vim-latex'
-Plugin 'gitignore'
-Plugin 'tpope/vim-vinegar'
-" Plugin 'fholgado/minibufexpl.vim'
-Plugin 'vim-coffee-script'
+
+" Language support
+" Plugin 'jplaut/vim-arduino-ino'
+" Plugin 'vim-coffee-script'
+" Plugin 'lervag/vim-latex'
+" Plugin 'vim-less'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
