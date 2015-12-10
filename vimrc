@@ -66,6 +66,7 @@ Plugin 'hynek/vim-python-pep8-indent'
 " Plugin 'vim-coffee-script'
 " Plugin 'lervag/vim-latex'
 " Plugin 'vim-less'
+Plugin 'derekwyatt/vim-scala'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
