@@ -41,6 +41,8 @@ Plug 'hynek/vim-python-pep8-indent'
 " Plug 'vim-coffee-script'
 " Plug 'lervag/vim-latex'
 " Plug 'vim-less'
+Plug 'othree/yajs.vim'
+Plug 'sophacles/vim-processing'
 Plug 'derekwyatt/vim-scala'
 Plug 'fatih/vim-go'
 Plug 'nsf/gocode', {'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh'}
