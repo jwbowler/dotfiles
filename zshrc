@@ -133,3 +133,5 @@ source ~/.sources
 
 # Ctrl-R reverse search
 bindkey "^R" history-incremental-search-backward
+
+fortune
