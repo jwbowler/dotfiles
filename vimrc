@@ -1,87 +1,53 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-" Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-" Plugin 'user/L9', {'name': 'newL9'}
+call plug#begin('~/.vim/plugged')
 
 " Color scheme
-Plugin 'jellybeans.vim'
+Plug 'jellybeans.vim'
 
 " For trailing whitespace
-Plugin 'ntpeters/vim-better-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 
 " Comment with <leader>cc or <leader>ci
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 
 " Ignore gitignored files
-Plugin 'gitignore'
+Plug 'gitignore'
 
 " Improves netrw
-Plugin 'tpope/vim-vinegar'
+Plug 'tpope/vim-vinegar'
 
 " Source navigation
-" Plugin 'wincent/Command-T'
-" Plugin 'ctrlp.vim'
+Plug 'ctrlp.vim'
 
 " Navigate between source and header files
-" Plugin 'FSwitch'
+" Plug 'FSwitch'
 
 " Swap two windows: <leader>ww <leader>ww
-" Plugin 'wesQ3/vim-windowswap'
+" Plug 'wesQ3/vim-windowswap'
 
 " Autocompletion
-" Plugin 'Valloric/YouCompleteMe'
+Plug 'Shougo/deoplete.nvim'
 
 " Git stuff
-" Plugin 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 
 " Python plugins: some I've tried; one I'm using
-" Plugin 'python.vim'
-" Plugin 'indentpython.vim'
-" Plugin 'klen/python-mode'
-Plugin 'hynek/vim-python-pep8-indent'
+" Plug 'python.vim'
+" Plug 'indentpython.vim'
+" Plug 'klen/python-mode'
+Plug 'hynek/vim-python-pep8-indent'
 
 " Language support
-" Plugin 'jplaut/vim-arduino-ino'
-" Plugin 'vim-coffee-script'
-" Plugin 'lervag/vim-latex'
-" Plugin 'vim-less'
-Plugin 'derekwyatt/vim-scala'
+" Plug 'jplaut/vim-arduino-ino'
+" Plug 'vim-coffee-script'
+" Plug 'lervag/vim-latex'
+" Plug 'vim-less'
+Plug 'derekwyatt/vim-scala'
+Plug 'fatih/vim-go'
+Plug 'nsf/gocode', {'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh'}
+Plug 'zchee/deoplete-go', {'do': 'make'}
+Plug 'hashivim/vim-terraform'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+call plug#end()
 
 if has('win32') || has('win64')
     set directory=$TMP
@@ -90,8 +56,6 @@ else
 end
 
 let mapleader=" "
-
-nnoremap ; :
 
 hi Normal ctermbg=NONE
 hi NonText ctermbg=NONE
@@ -116,7 +80,7 @@ nnoremap <silent> <Leader>k :wincmd k<CR>
 nnoremap <silent> <Leader>l :wincmd l<CR>
 
 noremap <C-j> J
-noremap <C-k> K
+noremap <C-k> 10<C-y>10k
 
 " split window
 nnoremap <leader>swh :topleft vsplit<CR>
@@ -151,11 +115,27 @@ nnoremap <leader>oj ::rightbelow split<CR><C-o>
 nnoremap <leader>ok ::leftabove split<CR><C-o>
 nnoremap <leader>ol ::rightbelow vsplit<CR><C-o>
 
+" netrw
+nnoremap <leader>n :Explore<CR>
+
+" terminal mode
+tnoremap <Esc> <C-\><C-n>
+
 noremap ; :
 
 noremap c- ct_
 
 vnoremap y y`]
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+set completeopt-=preview
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 if has("autocmd")
     filetype plugin indent on
@@ -167,12 +147,15 @@ if has("autocmd")
     autocmd FileType arduino set cindent
 
     autocmd FileType python setlocal smartindent shiftwidth=4 ts=4 et cinwords=if,elif,else,for,while,try,except,finally,def,class
+
+    autocmd FileType go nmap <leader>b <Plug>(go-build)
+    autocmd FileType go nmap <leader>t <Plug>(go-test)
 endif
 
 command! Vimrc e $MYVIMRC
 command! Revim so $MYVIMRC
 
-set tabstop=8
+set tabstop=4
 set expandtab
 set shiftwidth=4
 set softtabstop=4
@@ -190,6 +173,8 @@ set textwidth=80
 
 set backspace=start
 
+set clipboard=unnamedplus
+
 syntax enable
 set background=dark
 set t_Co=256
@@ -197,6 +182,8 @@ colorscheme jellybeans
 hi Normal ctermbg=NONE
 hi NonText ctermbg=NONE
 hi ExtraWhitespace ctermbg=red
+
+cabbr <expr> %% expand('%:p:h')
 
 " let g:airline_powerline_fonts = 1
 " let g:airline_left_sep = ''
@@ -209,10 +196,7 @@ hi ExtraWhitespace ctermbg=red
 " let g:airline_symbols.paste = 'ρ'
 " let g:airline_symbols.whitespace = 'Ξ'
 
-autocmd! BufEnter *.cc let b:fswitchdst = 'h' | let b:fswitchlocs = '.'
-autocmd! BufEnter *.c let b:fswitchdst = 'h' | let b:fswitchlocs = '.'
-autocmd! BufEnter *.h let b:fswitchdst = 'cc,c' | let b:fswitchlocs = '.'
-
 let g:pymode_doc_bind = '^K'
 
 let NERDSpaceDelims=1
+
