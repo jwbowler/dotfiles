@@ -129,6 +129,9 @@ noremap c- ct_
 
 vnoremap y y`]
 
+" search for highlighted text
+vnoremap // y/<C-R>"<CR>
+
 " deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
