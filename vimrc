@@ -17,6 +17,8 @@ Plug 'tpope/vim-vinegar'
 
 " Source navigation
 Plug 'ctrlp.vim'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdtree'
 
 " Navigate between source and header files
 " Plug 'FSwitch'
@@ -97,25 +99,30 @@ nnoremap <leader>sk  :leftabove split<CR>
 nnoremap <leader>sl  :rightbelow vsplit<CR>
 
 " open corresponding .cc/.h
-nnoremap <leader>aa :FSHere<CR>
-nnoremap <leader>ah :vsplit<CR>:wincmd l<CR>:FSLeft<CR>
-nnoremap <leader>aj :FSSplitBelow<CR>
-nnoremap <leader>ak :vsplit<CR>:wincmd j<CR>:FSAbove<CR>
-nnoremap <leader>al :FSSplitRight<CR>
+" nnoremap <leader>aa :FSHere<CR>
+" nnoremap <leader>ah :vsplit<CR>:wincmd l<CR>:FSLeft<CR>
+" nnoremap <leader>aj :FSSplitBelow<CR>
+" nnoremap <leader>ak :vsplit<CR>:wincmd j<CR>:FSAbove<CR>
+" nnoremap <leader>al :FSSplitRight<CR>
 
 " goto definition
-nnoremap <leader>]] <C-]>
-nnoremap <leader>]h ::leftabove vsplit<CR><C-]>
-nnoremap <leader>]j ::rightbelow split<CR><C-]>
-nnoremap <leader>]k ::leftabove split<CR><C-]>
-nnoremap <leader>]l ::rightbelow vsplit<CR><C-]>
+" nnoremap <leader>]] <C-]>
+" nnoremap <leader>]h ::leftabove vsplit<CR><C-]>
+" nnoremap <leader>]j ::rightbelow split<CR><C-]>
+" nnoremap <leader>]k ::leftabove split<CR><C-]>
+" nnoremap <leader>]l ::rightbelow vsplit<CR><C-]>
 
 " goto last location
-nnoremap <leader>oo <C-o>
-nnoremap <leader>oh ::leftabove vsplit<CR><C-o>
-nnoremap <leader>oj ::rightbelow split<CR><C-o>
-nnoremap <leader>ok ::leftabove split<CR><C-o>
-nnoremap <leader>ol ::rightbelow vsplit<CR><C-o>
+" nnoremap <leader>oo <C-o>
+" nnoremap <leader>oh ::leftabove vsplit<CR><C-o>
+" nnoremap <leader>oj ::rightbelow split<CR><C-o>
+" nnoremap <leader>ok ::leftabove split<CR><C-o>
+" nnoremap <leader>ol ::rightbelow vsplit<CR><C-o>
+nnoremap gb <C-o>
+
+nnoremap <leader>a :NERDTreeToggle<CR>
+nnoremap <leader>z :NERDTree<CR>
+nnoremap <leader>' :TagbarToggle<CR>
 
 " netrw
 nnoremap <leader>n :Explore<CR>
@@ -146,17 +153,20 @@ if has("autocmd")
     filetype plugin indent on
 
     " Use actual tabs in Makefiles.
-    autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
+    au FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
 
     " Indent .ino files like .c files.
-    autocmd FileType arduino set cindent
+    au FileType arduino set cindent
 
-    autocmd FileType python setlocal smartindent shiftwidth=4 ts=4 et cinwords=if,elif,else,for,while,try,except,finally,def,class
+    au FileType python setlocal smartindent shiftwidth=4 ts=4 et cinwords=if,elif,else,for,while,try,except,finally,def,class
+    au FileType python nmap gd <C-]>
 
-    autocmd FileType go nmap <leader>b <Plug>(go-build)
-    autocmd FileType go nmap <leader>t <Plug>(go-test)
+    au FileType go nmap <leader>b <Plug>(go-build)
+    au FileType go nmap <leader>t <Plug>(go-test)
+
+    au FileType go nmap <Leader>d <Plug>(go-doc)
+    au FileType go nmap <Leader>r <Plug>(go-rename)
 endif
-
 command! Vimrc e $MYVIMRC
 command! Revim so $MYVIMRC
 
@@ -201,7 +211,7 @@ cabbr <expr> %% expand('%:p:h')
 " let g:airline_symbols.paste = 'ρ'
 " let g:airline_symbols.whitespace = 'Ξ'
 
+let g:go_fmt_command = "goimports"
 let g:pymode_doc_bind = '^K'
 
 let NERDSpaceDelims=1
-
