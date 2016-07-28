@@ -3,6 +3,9 @@ call plug#begin('~/.vim/plugged')
 " Color scheme
 Plug 'jellybeans.vim'
 
+" Powerline
+Plug 'itchyny/lightline.vim'
+
 " For trailing whitespace
 Plug 'ntpeters/vim-better-whitespace'
 
@@ -19,6 +22,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
+Plug 'mileszs/ack.vim'
 
 " Navigate between source and header files
 " Plug 'FSwitch'
@@ -29,14 +33,11 @@ Plug 'scrooloose/nerdtree'
 " Autocompletion
 Plug 'Shougo/deoplete.nvim'
 
+" Syntax checking
+" Plug 'scrooloose/syntastic'
+
 " Git stuff
 " Plug 'tpope/vim-fugitive'
-
-" Python plugins: some I've tried; one I'm using
-" Plug 'python.vim'
-" Plug 'indentpython.vim'
-" Plug 'klen/python-mode'
-Plug 'hynek/vim-python-pep8-indent'
 
 " Language support
 " Plug 'jplaut/vim-arduino-ino'
@@ -48,7 +49,10 @@ Plug 'sophacles/vim-processing'
 Plug 'derekwyatt/vim-scala'
 Plug 'fatih/vim-go'
 Plug 'nsf/gocode', {'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh'}
-Plug 'zchee/deoplete-go', {'do': 'make'}
+Plug 'zchee/deoplete-go', {'for': 'go', 'do': 'make'}
+Plug 'zchee/deoplete-jedi', {'for': 'python'}
+Plug 'hdima/python-syntax', {'for': 'python'}
+Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 Plug 'hashivim/vim-terraform'
 
 call plug#end()
@@ -60,10 +64,6 @@ else
 end
 
 let mapleader=" "
-
-hi Normal ctermbg=NONE
-hi NonText ctermbg=NONE
-hi ExtraWhitespace ctermbg=red
 
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
@@ -139,6 +139,16 @@ vnoremap y y`]
 " search for highlighted text
 vnoremap // y/<C-R>"<CR>
 
+" ack word under cursor
+noremap <Leader>/ :Ack <cword><CR>
+
+" lightline
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ]
+      \ }
+      \ }
+
 " deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
@@ -191,9 +201,11 @@ set backspace=start
 set clipboard=unnamedplus
 
 syntax enable
+
 set background=dark
 set t_Co=256
 colorscheme jellybeans
+
 hi Normal ctermbg=NONE
 hi NonText ctermbg=NONE
 hi ExtraWhitespace ctermbg=red
