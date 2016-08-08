@@ -54,6 +54,18 @@ Plug 'zchee/deoplete-jedi', {'for': 'python'}
 Plug 'hdima/python-syntax', {'for': 'python'}
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 Plug 'hashivim/vim-terraform'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'stephpy/vim-yaml'
+
+" Lisp stuff
+Plug 'jpalardy/vim-slime'
+Plug 'wlangstroth/vim-racket'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
@@ -128,6 +140,7 @@ nnoremap <leader>' :TagbarToggle<CR>
 nnoremap <leader>n :Explore<CR>
 
 " terminal mode
+nnoremap <leader>m :terminal<CR>
 tnoremap <Esc> <C-\><C-n>
 
 noremap ; :
@@ -158,6 +171,12 @@ function! s:my_cr_function()
   return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" lisp
+let g:sexp_filetypes = 'clojure,scheme,lisp,timl,rkt'
+
+" js/jsx
+let g:jsx_ext_required = 0
 
 if has("autocmd")
     filetype plugin indent on
